@@ -1,4 +1,4 @@
-package com.navesespaciales.shared.infra.spring;
+package com.navesespaciales.shared.infra.spring.swagger;
 
 import static com.navesespaciales.shared.constantes.ConstantesAuth.AUTH_HEADER;
 import static com.navesespaciales.shared.constantes.ConstantesAuth.AUTH_SCHEMA_APIKEY;

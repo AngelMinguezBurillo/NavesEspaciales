@@ -1,7 +1,8 @@
-package com.navesespaciales.shared.infra.spring;
+package com.navesespaciales.shared.infra.spring.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.navesespaciales.shared.domain.exc.ConfiguracionException;
+import com.navesespaciales.shared.infra.spring.MessagesResourceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

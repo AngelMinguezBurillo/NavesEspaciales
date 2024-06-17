@@ -21,6 +21,7 @@ spring:
         minimumIdle: 10
         maximumPoolSize: 100
         maxLifetime: 3600000   
+        
     jpa:
         show-sql: true
         properties:
@@ -33,6 +34,12 @@ spring:
         console:
             enabled: true
             path: /h2-ui
+            
+    kafka:
+        bootstrap-servers: localhost:9092
+        producer:
+            key-serializer: org.apache.kafka.common.serialization.StringSerializer
+            value-serializer: org.apache.kafka.common.serialization.StringSerializer
             
 logging:
   level:
@@ -63,5 +70,5 @@ springdoc:
 
 com.navesespaciales:
     swagger: 
-        url: 'http://localhost:25000/navesespaciales/'     
+        url: 'http://localhost:25000/wsnaves/'     
 

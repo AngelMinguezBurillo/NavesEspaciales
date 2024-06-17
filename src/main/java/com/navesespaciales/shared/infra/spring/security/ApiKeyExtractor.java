@@ -1,5 +1,5 @@
 
-package com.navesespaciales.shared.infra.spring;
+package com.navesespaciales.shared.infra.spring.security;
 
 import jakarta.servlet.http.HttpServletRequest;
 import java.util.Optional;

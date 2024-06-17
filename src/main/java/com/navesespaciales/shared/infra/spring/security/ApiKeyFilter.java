@@ -1,4 +1,4 @@
-package com.navesespaciales.shared.infra.spring;
+package com.navesespaciales.shared.infra.spring.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

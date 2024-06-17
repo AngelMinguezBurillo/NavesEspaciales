@@ -1,5 +1,5 @@
 
-package com.navesespaciales.shared.infra.spring;
+package com.navesespaciales.shared.infra.spring.security;
 
 import java.util.Collection;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
