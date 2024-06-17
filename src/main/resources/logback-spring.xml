@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration> 
+    <property name="LOGS" value="./logs" />
+    <property name="APP" value="NavesEspaciales" />
+ 
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{HH:mm:ss:SSS} [%X{traceId:-},%X{spanId:-}] [%-8level] %m%n</Pattern>
+        </layout>
+    </appender>
+ 
+    <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGS}/${APP}/${APP}.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d{HH:mm:ss:SSS} [%X{traceId:-},%X{spanId:-}] [%-8level] %m%n</Pattern>
+        </encoder>
+ 
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOGS}/${APP}/${APP}-%d{yyyy-MM-dd-HH}.%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <totalSizeCap>0</totalSizeCap>
+            <maxHistory>0</maxHistory>
+        </rollingPolicy>
+    </appender>
+     
+    <springProfile name="default">
+        <root level="info">
+            <appender-ref ref="RollingFile" />
+            <appender-ref ref="Console" /> 
+        </root>
+      
+        <logger name="org.springframework.transaction.interceptor" level="debug" additivity="false">
+            <appender-ref ref="RollingFile" />
+            <appender-ref ref="Console" />
+        </logger>                        
+        
+    </springProfile>
+    
+</configuration>

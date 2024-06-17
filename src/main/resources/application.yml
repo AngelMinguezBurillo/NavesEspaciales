@@ -1,0 +1,67 @@
+server:
+    port: 25000
+            
+    servlet:
+        context-path: /wsnaves
+        
+spring:
+    application:
+        name: Naves Espaciales
+        description: API Naves Espaciales
+        version: 1.0
+    
+    security:
+        apikey: ENC(Ms/QSPM/2KzpStZmTRPbYA==)
+        
+    datasource:        
+        driver-class-name: org.h2.Driver
+        jdbc-url: jdbc:h2:mem:navesBD;
+        username: angel
+        password: pc6B9UXWQx
+        minimumIdle: 10
+        maximumPoolSize: 100
+        maxLifetime: 3600000   
+    jpa:
+        show-sql: true
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.H2Dialect
+        hibernate:
+            ddl-auto: update
+
+    h2:
+        console:
+            enabled: true
+            path: /h2-ui
+            
+logging:
+  level:
+    org.hibernate.orm.jdbc.bind: trace
+        
+jasypt:
+    encryptor:
+        password: prueba
+        algorithm: PBEWithMD5AndDES
+        iv-generator-classname: org.jasypt.iv.NoIvGenerator
+                   
+management:      
+    endpoints:
+        web:
+            exposure:
+                include: "info, health, refresh"    
+                          
+springdoc:
+    api-docs:
+        version: openapi_3_1
+        path: '/v3/api-docs'  
+    show-actuator: true     
+
+    swagger-ui:
+        enabled: true   
+        tags-sorter: alpha
+        operations-sorter: alpha
+
+com.navesespaciales:
+    swagger: 
+        url: 'http://localhost:25000/navesespaciales/'     
+
