@@ -142,9 +142,9 @@ public class AppExceptionHandler implements LogSupport {
         logWarning(HA_OCURRIDO_UN_ERROR, exc.getMessage());
 
         switch (exc.getCause()) {
-            case ApiException wsYaGanasteException -> {
+            case ApiException apiException -> {
                 return ResponseEntity
-                        .status(wsYaGanasteException.getHttpSatus())
+                        .status(apiException.getHttpSatus())
                         .body(new ApiError(messagesResourceService.getResourceString(exc.getCause().getMessage())));
             }
             default -> {
